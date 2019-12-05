@@ -1,0 +1,11 @@
+div {
+    margin: auto;
+    text-align: center;
+    font-size: 20pt;
+    color : red;
+}
+img {
+    border-radius: 80%;
+    align-content: center;
+    margin-right: 30%;
+}
