@@ -1,4 +1,4 @@
-package ro.sda;
+package ro.sda.model;
 
 import java.util.Objects;
 
@@ -7,27 +7,21 @@ public class Task {
     private String taskName;
     private boolean checked;
 
-    public String getTaskName() { return taskName; }
-
-    public boolean isChecked() { return checked; }
-
-    public void setChecked(boolean checked) { this.checked = checked; }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return checked == task.checked &&
-                taskName.equals(task.taskName);
+    public String getTaskName() {
+        return taskName;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(taskName, checked);
+    public boolean isChecked() {
+        return checked;
     }
 
-    public static Builder newtask() { return new Builder(); }
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
+    public static Builder newtask() {
+        return new Builder();
+    }
 
     private Task(Builder builder) {
         this.taskName = builder.taskName;
@@ -54,5 +48,18 @@ public class Task {
             this.checked = checked;
             return this;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return checked == task.checked && taskName.equals(task.taskName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskName, checked);
     }
 }
